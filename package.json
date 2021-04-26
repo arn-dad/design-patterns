@@ -1,0 +1,23 @@
+{
+  "name": "design-patterns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arn-dad/design-patterns.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arn-dad/design-patterns/issues"
+  },
+  "homepage": "https://github.com/arn-dad/design-patterns#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
