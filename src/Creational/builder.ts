@@ -1,11 +1,34 @@
-class Address {
-  constructor(zip, street) {
+
+interface Address {
+  name: string;
+
+  age: number;
+
+  phone: string;
+
+  address: any;
+}
+class AddressImpl {
+  zip: string
+  street: string
+
+  constructor(zip: string, street: string) {
     this.zip = zip
     this.street = street
   }
 }
 
-class Client {
+interface Client {
+  name: string;
+
+  age: number;
+
+  phone: string;
+
+  address: any;
+}
+
+class ClientImpl implements Client {
   name = null;
 
   age = null;
@@ -14,29 +37,35 @@ class Client {
 
   address = null;
 
-  constructor(name) {
+  constructor(name: string) {
     this.name = name
   }
 
 }
 
+interface ClientBuilder {
+  user: Client;
+}
 
-class ClientBuilder {
-  constructor(name) {
-    this.user = new Client(name)
+
+class ClientBuilderImpl implements ClientBuilder {
+  user: Client
+
+  constructor(name: string) {
+    this.user = new ClientImpl(name)
   }
 
-  setAge(age) {
+  setAge(age: number) {
     this.user.age = age
     return this
   }
 
-  setPhone(phone) {
+  setPhone(phone: string) {
     this.user.phone = phone
     return this
   }
 
-  setAddress(address) {
+  setAddress(address: AddressImpl) {
     this.user.address = address
     return this
   }
@@ -46,7 +75,8 @@ class ClientBuilder {
   }
 }
 
-const client = new ClientBuilder('Max')
+const client = new ClientBuilderImpl('Max')
                           .setAge(22)
                           .setPhone('121212')
+                          .setAddress(new AddressImpl('2563', 'main'))
                           .build()
